@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin-top: 78px;
+    padding: 0;
+    font-family: 'Lato';
+    background-color: rgb(224, 215, 188);
+}
+header {
+    background-color: burlywood;
+    height: 80px;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    top: 0%;
+    border-bottom: rgb(255, 205, 98) solid 5px;
+}
+
+footer {
+    background-color: burlywood;
+    padding: 40px;
+    border-top: rgb(255, 205, 98) solid 5px;
+    width: 100%;
+}
