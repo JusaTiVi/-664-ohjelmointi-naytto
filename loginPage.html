@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sisäänkirjautumis-sivu</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <h1>kirjaudu sisään</h1>
+
+    <p>käyttäjänimi</p>
+    <input type="text" id="kayttajanimi">
+
+    <p>salasana</p>
+    <input type="password" id="salasana">
+
+    <button onclick="kirjaudu()">kirjaudu</button>
+
+    <p>etkö omista käyttäjää?</p>
+    <button onclick="rekisteroidy()">rekisteröidy</button>
+
+    <p id="error" style="color: red;"></p>
+    <p id="message" style="color: rgb(88, 172, 221);"></p>
+
+    <script src="./js/login.js"></script>
+</body>
+</html>
