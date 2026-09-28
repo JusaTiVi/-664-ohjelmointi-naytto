@@ -29,8 +29,8 @@ footer {
 
 .image-container {
     position: relative;
-    width: 40%;
-    margin: 0 auto;
+    width: min(700px, 90%);
+    margin: 32px auto 48px;
 }
 
 .image-container img {
@@ -46,4 +46,74 @@ footer {
     transform: translate(-50%, -50%);
     color: white;
     text-align: center;
+}
+
+.listing-section {
+    width: min(900px, 90%);
+    margin: 0 auto 48px;
+    color: #263b31
+}
+
+.listing-section h2 {
+    margin-bottom: 16px;
+}
+
+button {
+    border: 0;
+    border-radius: 4px;
+    padding: 10px 16px;
+    background-color: #38470d;
+    color: white;
+    font: inherit;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #294938;
+}
+
+#listing-form {
+    display: grid;
+    gap: 8px;
+    max-width: 420px;
+    margin: 20px 0;
+}
+
+#listing-form input {
+    width: 100%;
+    padding: 9px;
+    border: 1px solid #829487;
+    border-radius: 4px;
+    font: inherit;
+}
+
+#listings p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 14px;
+    margin: 10px 0;
+    border-left: 4px solid #557d5c;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+#listings button {
+    flex-shrink: 0;
+    background-color: #a64e3c;
+}
+
+#listings button:hover {
+    background-color: #873b2d;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 520px) {
+    #listings p {
+        align-items: flex-start;
+        flex-direction: column;
+    }
 }

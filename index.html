@@ -12,7 +12,8 @@
             <img src="" alt="logo">
         </div>
         <nav>
-            <a href="index.html">etusivu</a>
+            <a href="index.html">Etusivu</a>
+            <a href="loginPage.html">Kirjaudu</a>
         </nav>
     </header>
     <main>
@@ -20,7 +21,29 @@
             <img src="./images/kirppis.jpg" alt="Kirpputori">
             <h1>Tervetuloa kirpputorille!</h1>
         </div>
+        <section class="listing-section">
+            <h2>Myynnissä!</h2>
+            <button id="lisaa-tuote" type="button">Lisää ilmoitus</button>
+
+            <p id="login-message" hidden>
+                Kirjaudu sisään lisätäksesi ilmoituksen
+                <a href="loginPage.html">Kirjaudu sisään</a>
+            </p>
+
+            <form id="listing-form" hidden>
+                <label for="listing-name">Tuotteen nimi</label>
+                <input id="listing-name" required>
+
+                <label for="listing-price">Hinta (€)</label>
+                <input id="listing-price" type="number" min="0" step="1" required>
+
+                <button type="submit">Julkaise ilmoitus</button>
+            </form>
+
+            <div id="listings"></div>
+        </section>
     </main>
     <footer></footer>
+    <script src="./js/main.js"></script>
 </body>
 </html>
