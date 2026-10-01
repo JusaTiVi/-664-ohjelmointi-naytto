@@ -89,6 +89,7 @@ function roolinSivu(rooli) {
 
 function kirjauduUlos() {
     localStorage.removeItem("kayttaja")
+    localStorage.removeItem("rooli")
 
     document.getElementById("message").textContent = "kirjauduttu ulos!"
     document.getElementById("error").textContent = ""

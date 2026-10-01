@@ -6,6 +6,7 @@ const listingsContainer = document.getElementById("listings")
 function naytaIlmoitukset() {
     const listings = JSON.parse(localStorage.getItem("ilmoitukset")) || []
     const currentUser = localStorage.getItem("kayttaja")
+    const currentRole = localStorage.getItem("rooli")
 
     listingsContainer.replaceChildren()
 
@@ -13,15 +14,16 @@ function naytaIlmoitukset() {
         const item = document.createElement("p")
         item.textContent = `${listing.name} - ${listing.price} € (myyjä: ${listing.seller})`
 
-        if (currentUser === listing.seller) {
+        if (currentUser === listing.seller || currentRole === "yllapitaja") {
             const removeButton = document.createElement("button")
             removeButton.type = "button"
             removeButton.textContent = "Poista ilmoitus"
 
             removeButton.addEventListener("click", function() {
                 const latestListings = JSON.parse(localStorage.getItem("ilmoitukset")) || []
+                const activeRole = localStorage.getItem("rooli")
 
-                if (localStorage.getItem("kayttaja") !== latestListings[index]?.seller) {
+                if (localStorage.getItem("kayttaja") !== latestListings[index]?.seller && activeRole !== "yllapitaja") {
                     return
                 }
 
