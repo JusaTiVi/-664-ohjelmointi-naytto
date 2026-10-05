@@ -12,7 +12,11 @@ function naytaIlmoitukset() {
 
     listings.forEach(function(listing, index) {
         const item = document.createElement("p")
-        item.textContent = `${listing.name} - ${listing.price} € (myyjä: ${listing.seller})`
+        const details = document.createElement("span")
+details.textContent =
+    `${listing.name} - ${listing.price} € (myyjä: ${listing.seller})\n` +
+    (listing.description || "")
+item.appendChild(details)
 
         if (currentUser === listing.seller || currentRole === "yllapitaja") {
             const removeButton = document.createElement("button")
@@ -68,6 +72,7 @@ listingForm.addEventListener("submit", function(event) {
     listings.push({
         name: document.getElementById("listing-name").value.trim(),
         price: document.getElementById("listing-price").value,
+        description: document.getElementById("listing-description").value.trim(),
         seller: seller
     })
 
