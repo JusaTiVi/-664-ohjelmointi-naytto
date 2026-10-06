@@ -11,12 +11,39 @@ function naytaIlmoitukset() {
     listingsContainer.replaceChildren()
 
     listings.forEach(function(listing, index) {
+
+        if (!listing.hyvaksytty && currentRole !== "yllapitaja" && currentUser !== listing.seller) {
+            return
+        }
+
         const item = document.createElement("p")
         const details = document.createElement("span")
 details.textContent =
     `${listing.name} - ${listing.price} € (myyjä: ${listing.seller})\n` +
     (listing.description || "")
 item.appendChild(details)
+
+        if (currentRole === "yllapitaja" && !listing.hyvaksytty) {
+            const status = document.createElement("span")
+            status.textContent = " - odottaa hyväksyntää"
+            item.appendChild(status)
+
+            const approveButton = document.createElement("button")
+            approveButton.type = "button"
+            approveButton.textContent = "hyväksy"
+
+            approveButton.addEventListener("click", function() {
+                const latestListings = JSON.parse(localStorage.getItem("ilmoitukset")) || []
+
+                if (latestListings[index]) {
+                    latestListings[index].hyvaksytty = true
+                    localStorage.setItem("ilmoitukset", JSON.stringify(latestListings))
+                    naytaIlmoitukset()
+                }
+            })
+
+            item.appendChild(approveButton)
+        }
 
         if (currentUser === listing.seller || currentRole === "yllapitaja") {
             const removeButton = document.createElement("button")
@@ -60,6 +87,7 @@ listingForm.addEventListener("submit", function(event) {
     event.preventDefault()
 
     const seller = localStorage.getItem("kayttaja")
+    const currentRole = localStorage.getItem("rooli")
 
     if (!seller) {
         loginMessage.hidden = false
@@ -73,7 +101,8 @@ listingForm.addEventListener("submit", function(event) {
         name: document.getElementById("listing-name").value.trim(),
         price: document.getElementById("listing-price").value,
         description: document.getElementById("listing-description").value.trim(),
-        seller: seller
+        seller: seller,
+        hyvaksytty: currentRole === "yllapitaja"
     })
 
     localStorage.setItem("ilmoitukset", JSON.stringify(listings))

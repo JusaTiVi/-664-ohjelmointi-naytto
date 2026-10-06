@@ -13,9 +13,16 @@ function rekisteroidy() {
 
     let kayttajanimi = document.getElementById("kayttajanimi").value
     let salasana = document.getElementById("salasana").value
+    
+    if (!kayttajanimi.trim() || !salasana.trim()) {
+        document.getElementById("error").textContent = "Täytä kentät!"
+        document.getElementById("message").textContent = ""
+        return
+    }
 
     if (kayttajanimi === yllapitaja.kayttajanimi) {
         document.getElementById("error").textContent = "käyttäjänimi on jo otettu!"
+        document.getElementById("message").textContent = ""
         return
     }
 
@@ -25,6 +32,7 @@ function rekisteroidy() {
 
     if (olemassa) {
         document.getElementById("error").textContent = "käyttäjänimi on jo otettu!"
+        document.getElementById("message").textContent = ""
         return
     }
 
@@ -39,6 +47,7 @@ function rekisteroidy() {
     tallennaKayttajat()
 
     document.getElementById("message").textContent = "rekisteröinti onnistui!"
+    document.getElementById("error").textContent = ""
 }
 
 function kirjaudu() {
@@ -91,6 +100,16 @@ function kirjauduUlos() {
     localStorage.removeItem("kayttaja")
     localStorage.removeItem("rooli")
 
+    const yllapitajanElementit = document.querySelectorAll(".yllapitajanElementti")
+    yllapitajanElementit.forEach(function(element) {
+        element.classList.add("hidden")
+    })
+
     document.getElementById("message").textContent = "kirjauduttu ulos!"
     document.getElementById("error").textContent = ""
+}
+
+const tallennettuRooli = localStorage.getItem("rooli")
+if (tallennettuRooli) {
+    roolinSivu(tallennettuRooli)
 }
