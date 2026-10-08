@@ -93,6 +93,7 @@ button:hover {
 }
 
 #listings {
+    margin-top: 24px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
     gap: 12px;
@@ -117,6 +118,24 @@ button:hover {
 
 #listings button:hover {
     background-color: #873b2d;
+}
+
+#filter-form {
+    margin-bottom: 24px;
+}
+
+form select {
+    font: inherit;
+    color: #352719;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid #829487;
+    padding: 8px 10px;
+    border-radius: 4px;
+}
+
+form select:focus {
+    outline: 2px solid #352719;
+    outline-offset: 2px;
 }
 
 [hidden] {

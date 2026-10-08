@@ -34,13 +34,40 @@
                 <label for="listing-name">Tuotteen nimi</label>
                 <input id="listing-name" required>
 
+                <label for="listing-category">Kategoria</label>
+                <select id="listing-category" required>
+                    <option value="" disabled selected>Valitse kategoria</option>
+                    <option value="Vaatetus">Vaatetus</option>
+                    <option value="Elektroniikka">Elektroniikka</option>
+                    <option value="Urheilu">Urheilu</option>
+                    <option value="Muu">Muu</option>
+                </select>
+
                 <label for="listing-price">Hinta (€)</label>
-                <input id="listing-price" type="number" min="0" step="1" required>
+                <input id="listing-price" type="number" min="1" max="5000" step="1" placeholder="1€ - 5000€" required>
 
                 <label for="listing-description">Kuvaus</label>
                 <textarea id="listing-description" rows="4" maxlength="500"></textarea>
 
                 <button type="submit">Julkaise ilmoitus</button>
+            </form>
+
+            <form id="filter-form">
+                <input id="filter-name" type="search" placeholder="Hae nimellä">
+
+                <select id="filter-category">
+                    <option value="">Kaikki kategoriat</option>
+                    <option value="Vaatetus">Vaatetus</option>
+                    <option value="Elektroniikka">Elektroniikka</option>
+                    <option value="Urheilu">Urheilu</option>
+                    <option value="Muu">Muu</option>
+                </select>
+
+                <input id="filter-min-price" type="number" min="1" placeholder="Min 1€">
+                <input id="filter-max-price" type="number" min="1"  max="5000" placeholder="Max 5000€">
+
+                
+                <button type="reset">Tyhjennä</button>
             </form>
 
             <div id="listings"></div>
