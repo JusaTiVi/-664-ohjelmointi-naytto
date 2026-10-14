@@ -29,11 +29,21 @@ function naytaIlmoitukset() {
 
         const item = document.createElement("p")
         const details = document.createElement("span")
-details.textContent =
-    `${listing.name} - ${listing.price} € (myyjä: ${listing.seller})\n` +
-    `Kategoria: ${listing.category || "Ei kategoriaa"}\n` +
-    (listing.description || "")
-item.appendChild(details)
+        const cartButton = document.createElement("button")
+        cartButton.type = "button"
+        cartButton.textContent = "lisää ostoskoriin"
+
+        cartButton.addEventListener("click", function (){
+            addToCart(listing)
+        })
+
+    item.append(" ", cartButton)
+
+    details.textContent =
+        `${listing.name} - ${listing.price} € (myyjä: ${listing.seller})\n` +
+        `Kategoria: ${listing.category || "Ei kategoriaa"}\n` +
+        (listing.description || "")
+    item.appendChild(details)
 
         if (currentRole === "yllapitaja" && !listing.hyvaksytty) {
             const status = document.createElement("span")
@@ -130,3 +140,10 @@ filterForm.addEventListener("reset", function() {
 })
 
 naytaIlmoitukset()
+
+function addToCart(listing) {
+    const cart = JSON.parse(localStorage.getItem("ostoskori")) || []
+    cart.push(listing)
+    localStorage.setItem("ostoskori", JSON.stringify(cart))
+    alert("tuote lisätty ostoskoriin!")
+}
