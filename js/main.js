@@ -120,6 +120,7 @@ listingForm.addEventListener("submit", function(event) {
     const listings = JSON.parse(localStorage.getItem("ilmoitukset")) || []
 
     listings.push({
+        id: crypto.randomUUID(),
         name: document.getElementById("listing-name").value.trim(),
         price: document.getElementById("listing-price").value,
         category: document.getElementById("listing-category").value,
@@ -145,7 +146,7 @@ function addToCart(listing) {
     const cart = JSON.parse(localStorage.getItem("ostoskori")) || []
 
     const alreadyInCart = cart.some(function(item) {
-        return item.name === listing.name && item.seller === listing.seller
+        return item.id === listing.id
     })
 
     if (alreadyInCart) {
