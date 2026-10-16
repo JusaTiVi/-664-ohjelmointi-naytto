@@ -11,7 +11,7 @@ vaihe 4: lisäsin cart.js ja cart.html tiedostot, johon käyttäjä voi lisätä
 viimeistely: lisäsin eston ottaa samaa tavaraa ostoskoriin enemmän kuin kerran + tein ja lisäsin logon.
 
 Miika Lassila
-aloitus: Aloitin tekemällä verkkokirppikselle yksinkertaiset etusivut.
-vaihe 1: Tein lisää ilmoitus funktion joka mahdollistaa ilmoitusten lisäämisen etusivulle.
-vaihe 2: Lisäsin tuotteille kategoria kohdan ja tein hakukentän jonka avulla voi etsiä ilmoituksia.
+aloitus: Aloitin tekemällä verkkokirppikselle yksinkertaiset etusivut. Aluksi lisäsin etusivulle vain kuvan ja tervetuloa tekstin.
+vaihe 1: Tein lisää ilmoitus funktion joka mahdollistaa ilmoitusten lisäämisen etusivulle, ilmoituksiin pitää lisätä tuotteen nimi, hinta (1-5000eur), kuvaus ja kategoria. Ilmoituksen lisännyt käyttäjä voi myös poistaa tekemänsä ilmoituksen.
+vaihe 2: Tein hakukentän jonka avulla voi etsiä ilmoituksia. Hakukentässä voit filteröidä ilmoituksia hinnan, kategorian ja nimen perusteella.
 viimeistely: Lopuksi vielä hieman muokkasin etusivua ja ostoskoria niin että ostetut tuotteet katoavat ilmoutuksista etusivulla.
