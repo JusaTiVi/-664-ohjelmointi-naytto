@@ -143,7 +143,17 @@ naytaIlmoitukset()
 
 function addToCart(listing) {
     const cart = JSON.parse(localStorage.getItem("ostoskori")) || []
+
+    const alreadyInCart = cart.some(function(item) {
+        return item.name === listing.name && item.seller === listing.seller
+    })
+
+    if (alreadyInCart) {
+        alert("Tuote on jo ostoskorissa!")
+        return
+    }
     cart.push(listing)
     localStorage.setItem("ostoskori", JSON.stringify(cart))
+    
     alert("tuote lisätty ostoskoriin!")
 }
