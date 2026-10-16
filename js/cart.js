@@ -16,7 +16,7 @@ function naytaOstoskori() {
 
     cart.forEach(function(item, index) {
         const product = document.createElement("p")
-        product.textContent = `${item.name} - ${item.price} € (myyjä: ${item.seller}`
+        product.textContent = `${item.name} - ${item.price} € (myyjä: ${item.seller})`
 
         const removeButton = document.createElement("button")
         removeButton.textContent = "poista"
@@ -37,6 +37,19 @@ function naytaOstoskori() {
 }
 
 checkout.addEventListener("click", function() {
+    const cart = JSON.parse(localStorage.getItem("ostoskori")) || []
+    if (cart.length === 0) return
+
+    const boughtIds = cart.map(function(item) {
+        return item.id
+    })
+
+    const listings = JSON.parse(localStorage.getItem("ilmoitukset")) || []
+    const remaining = listings.filter(function(listing) {
+        return !boughtIds.includes(listing.id)
+    })
+
+    localStorage.setItem("ilmoitukset", JSON.stringify(remaining))
     localStorage.removeItem("ostoskori")
     naytaOstoskori()
     alert("Kiitos tilauksestasi!")

@@ -23,7 +23,36 @@ header {
     top: 0%;
     border-bottom: rgb(255, 205, 98) solid 5px;
     z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
+
+header nav {
+    display: flex;
+    gap: 8px;
+}
+
+header nav a,
+.cart a {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 4px;
+    background-color: #38470d;
+    color: white;
+    text-decoration: none;
+    font: inherit;
+}
+
+header nav a:hover,
+.cart a:hover {
+    background-color: #294938;
+}
+
+.cart {
+    margin-left: auto;
+}
+
 
 footer {
     background-color: burlywood;
