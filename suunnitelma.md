@@ -8,3 +8,7 @@ vaihe 1: loin loginPage.html- ja login.js sivut, joihin tein sisäänkirjautumis
 vaihe 2:
 
 Miika Lassila
+aloitus: Aloitin tekemällä verkkokirppikselle yksinkertaiset etusivut.
+vaihe 1: Tein lisää ilmoitus funktion joka mahdollistaa ilmoitusten lisäämisen etusivulle.
+vaihe 2: Lisäsin tuotteille kategoria kohdan ja tein hakukentän jonka avulla voi etsiä ilmoituksia.
+viimeistely: Lopuksi vielä hieman muokkasin etusivua ja ostoskoria niin että ostetut tuotteet katoavat ilmoutuksista etusivulla.
